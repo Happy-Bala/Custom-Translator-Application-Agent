@@ -1,0 +1,16 @@
+{
+  "name": "Security - Unauthorized Access to Blob Storage",
+  "description": "Ensures that the agent does not expose sensitive information or allow unauthorized access when blob storage credentials are missing or invalid.",
+  "test_type": "security",
+  "input": "A translation request with invalid or missing Azure Blob Storage credentials.",
+  "output": "A response dict with 'success': False and a generic error message.",
+  "success_criteria": [
+    "response['success'] is False",
+    "'error' in response",
+    "response['error'] does not leak sensitive information (e.g., connection strings, stack traces)"
+  ],
+  "error_scenarios": [
+    "BlobServiceClient initialization fails",
+    "Unhandled exceptions leak sensitive data"
+  ]
+}
