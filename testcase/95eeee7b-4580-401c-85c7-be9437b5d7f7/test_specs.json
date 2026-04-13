@@ -1,0 +1,15 @@
+{
+  "name": "Security - API Key and Credential Protection",
+  "description": "Ensures that sensitive configuration values (API keys, connection strings) are never leaked in logs or error messages.",
+  "test_type": "security",
+  "input": "Trigger errors in translation and search services by omitting required environment variables.",
+  "output": "Error responses and logs.",
+  "success_criteria": [
+    "No API keys or secrets appear in error messages or logs",
+    "Error messages are generic and safe"
+  ],
+  "error_scenarios": [
+    "Accidental logging of environment variables",
+    "Detailed stack traces with sensitive data"
+  ]
+}
