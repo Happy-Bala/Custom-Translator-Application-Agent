@@ -1,0 +1,16 @@
+{
+  "name": "Security - Block Malicious Input",
+  "description": "Ensures that the agent and its endpoints are protected against malicious input, such as code injection or directory traversal attempts.",
+  "test_type": "security",
+  "input": "A filename with directory traversal (e.g., '../../etc/passwd') or a query containing SQL injection patterns.",
+  "output": "A response dict with success=False and an appropriate error message.",
+  "success_criteria": [
+    "response['success'] is False",
+    "response['error'] contains a safe, generic error message",
+    "No sensitive information is leaked in the error"
+  ],
+  "error_scenarios": [
+    "Input validation bypass",
+    "Unhandled exceptions exposing stack traces"
+  ]
+}
