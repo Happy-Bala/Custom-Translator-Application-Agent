@@ -1,0 +1,16 @@
+{
+  "name": "Integration - API Endpoint /agent/handle",
+  "description": "Tests the FastAPI /agent/handle endpoint for both translation and query inputs, ensuring correct routing and response structure.",
+  "test_type": "integration",
+  "input": "POST request with valid UserInputModel JSON for both a filename and a query.",
+  "output": "HTTP 200 response with the expected JSON structure for both cases.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response JSON matches expected schema for translation and query",
+    "Content safety guardrails are enforced"
+  ],
+  "error_scenarios": [
+    "Malformed input (triggers validation error handler)",
+    "Unhandled exceptions"
+  ]
+}
