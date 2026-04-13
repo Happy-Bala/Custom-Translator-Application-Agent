@@ -1,0 +1,16 @@
+{
+  "name": "Functional - Ambiguous Input Handling",
+  "description": "Validates that the agent returns a clear error when the input cannot be classified as either a filename or a knowledge base query.",
+  "test_type": "functional",
+  "input": "An ambiguous string (e.g., 'file') that is neither a valid filename nor a query.",
+  "output": "A response dict with 'success': False and 'error_type': 'ERR_INPUT_AMBIGUOUS'.",
+  "success_criteria": [
+    "response['success'] is False",
+    "response['error_type'] == 'ERR_INPUT_AMBIGUOUS'",
+    "'error' in response"
+  ],
+  "error_scenarios": [
+    "Input classifier fails to raise ValueError",
+    "Error handler does not return the correct error message"
+  ]
+}
