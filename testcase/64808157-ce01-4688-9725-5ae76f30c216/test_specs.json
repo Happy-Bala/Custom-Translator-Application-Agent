@@ -1,0 +1,17 @@
+{
+  "name": "Integration - Knowledge Base Query Workflow",
+  "description": "Tests the end-to-end workflow for a knowledge base query, ensuring the agent retrieves relevant chunks from Azure AI Search and generates an LLM-based answer.",
+  "test_type": "integration",
+  "input": "A natural language question (e.g., 'What is the primary function of leaves in plants?')",
+  "output": "A response dict with 'success': True and 'answer' containing the LLM-generated answer.",
+  "success_criteria": [
+    "response['success'] is True",
+    "'answer' in response",
+    "response['answer'] is a non-empty string"
+  ],
+  "error_scenarios": [
+    "Azure AI Search misconfiguration",
+    "No relevant chunks found (should return fallback response)",
+    "LLM API call fails"
+  ]
+}
