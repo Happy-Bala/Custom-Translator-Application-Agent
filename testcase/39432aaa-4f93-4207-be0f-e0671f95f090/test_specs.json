@@ -1,0 +1,17 @@
+{
+  "name": "Functional - Successful Translation Request",
+  "description": "Validates that the agent successfully processes a valid filename input, retrieves the file from Azure Blob Storage, generates a SAS URL, calls the Azure Translator, and returns the translated content.",
+  "test_type": "functional",
+  "input": "A valid filename (e.g., 'document.pdf') that exists in Azure Blob Storage.",
+  "output": "A response dict with success=True, a summary, and translated_content fields.",
+  "success_criteria": [
+    "response['success'] is True",
+    "response contains 'summary' and 'translated_content'",
+    "summary mentions successful translation"
+  ],
+  "error_scenarios": [
+    "Blob not found",
+    "Azure Translator API failure",
+    "SAS URL generation failure"
+  ]
+}
