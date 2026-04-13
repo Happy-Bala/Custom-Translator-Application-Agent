@@ -1,0 +1,15 @@
+{
+  "name": "Performance - High Load Health Check",
+  "description": "Measures the /health endpoint response time under high concurrent load.",
+  "test_type": "performance",
+  "input": "Simultaneous GET requests (e.g., 100 concurrent) to /health.",
+  "output": "Aggregate response times and success rates.",
+  "success_criteria": [
+    "All responses return HTTP 200 and {'success': True, 'status': 'ok'}",
+    "Average response time is below 100ms"
+  ],
+  "error_scenarios": [
+    "Server resource exhaustion",
+    "Increased latency or failed health checks"
+  ]
+}
