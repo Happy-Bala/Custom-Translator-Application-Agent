@@ -1,0 +1,16 @@
+{
+  "name": "Security - Content Safety Guardrails Enforcement",
+  "description": "Ensures that the content safety decorator blocks or sanitizes unsafe input/output according to the GUARDRAILS_CONFIG.",
+  "test_type": "security",
+  "input": "A request containing toxic or unsafe content (e.g., input with profanity or PII).",
+  "output": "A response dict indicating the request was blocked or sanitized.",
+  "success_criteria": [
+    "response['success'] is False or content is sanitized",
+    "No unsafe content is returned in the output",
+    "Appropriate error or warning is present"
+  ],
+  "error_scenarios": [
+    "Content safety decorator fails to block unsafe content",
+    "Unsafe content is returned to the user"
+  ]
+}
