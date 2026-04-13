@@ -1,0 +1,16 @@
+{
+  "name": "Performance - Translation Request Latency",
+  "description": "Measures the time taken to process a translation request from input to translated content, ensuring it completes within an acceptable threshold.",
+  "test_type": "performance",
+  "input": "A valid filename (e.g., 'largefile.docx') present in Azure Blob Storage.",
+  "output": "Response time in milliseconds and the agent's response dict.",
+  "success_criteria": [
+    "Total processing time is less than 10 seconds for typical files",
+    "response['success'] is True",
+    "'translated_content' in response"
+  ],
+  "error_scenarios": [
+    "Network latency to Azure services",
+    "Timeouts in translation or blob access"
+  ]
+}
