@@ -1,0 +1,17 @@
+{
+  "name": "Integration - Knowledge Base Query Workflow",
+  "description": "Tests the end-to-end workflow for a knowledge base query: embedding generation, Azure AI Search retrieval, and LLM answer generation.",
+  "test_type": "integration",
+  "input": "A natural language question (e.g., 'What is the primary function of leaves in plants?').",
+  "output": "A response dict with success=True and an answer string.",
+  "success_criteria": [
+    "response['success'] is True",
+    "response contains 'answer'",
+    "answer is a non-empty string"
+  ],
+  "error_scenarios": [
+    "OpenAI embedding API failure",
+    "Azure AI Search returns no results",
+    "LLM generation failure"
+  ]
+}
