@@ -1,0 +1,18 @@
+{
+  "name": "Integration - API Endpoint /agent/handle",
+  "description": "Tests the FastAPI endpoint '/agent/handle' for both translation and query inputs, ensuring correct routing and response structure.",
+  "test_type": "integration",
+  "input": "POST request with JSON body {'input': 'report_2023.docx'} and {'input': 'What is photosynthesis?'}",
+  "output": "HTTP 200 response with JSON containing either translation or knowledge base answer.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "Response JSON contains 'success' key",
+    "For translation: 'translated_content' in response",
+    "For query: 'answer' in response"
+  ],
+  "error_scenarios": [
+    "Malformed JSON input",
+    "Validation errors (e.g., input too long or empty)",
+    "Unhandled exceptions in agent"
+  ]
+}
